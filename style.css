@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+/* BasicStyle */
+body {
+  padding: 1rem;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  width: 400px;
+}
+
+h2 {
+  margin-top: 3rem;
+}
+
+/* 画像が流れ続ける */
+.marquee-container {
+  display: flex;
+  position: relative;
+}
+
+.marquee-inner {
+  display: flex;
+  animation: marquee 20s linear inifinite;
+}
+
+@keyframes marquee {
+  0% {
+    translate: 0;
+  }
+  100% {
+    translate: -100%;
+  }
+}
+
+/* 画像にホバーすると動作停止し拡大 */
+.marquee-inner-stop {
+  display: flex;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-inner-stop img {
+  transition: scale 0.4s;
+}
+
+.marquee-inner-stop:has(img:hover) {
+  z-index: 2;
+}
+
+.marquee-inner-stop img:hover {
+  scale: 1.1;
+}
+
+/* 停止時クラス */
+.marquee-paused {
+  animation-play-state: paused;
+}
