@@ -2,39 +2,83 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>-艶やかな髪とサラサラの指通り-</title>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
+
   <body>
-    <h1>-New Product-</h1>
-    <div class="marquee-container">
-      <div class="marquee-inner">
-        <img src="img/product1.png" alt="Item1" />
-        <img src="img/product2.png" alt="Item2" />
-        <img src="img/product3.png" alt="Item3" />
-        <img src="img/product4.png" alt="Item4" />
+    <header id="header">
+      <h1 class="logo">
+        <a href="index.html">
+          <img src="img/logo.png" alt="Cosmetic" />
+        </a>
+      </h1>
+    </header>
+
+    <main>
+      <div class="mainvisual">
+        <img src="img/mainvisual.png" alt="メイン" />
       </div>
-      <div class="marquee-inner">
-        <img src="img/product5.png" alt="Item5" />
-        <img src="img/product6.png" alt="Item6" />
-        <img src="img/product7.png" alt="Item7" />
+
+      <section class="concept wrapper">
+        <div class="img">
+          <img src="img/concept.png" alt="コンセプト" />
+        </div>
+        <div class="text">
+          <h2 class="section-title">もっと美しく、健やかな毎日を</h2>
+          <p class="description">
+            実は『コスメ』と『化粧品』の違いは無いらしい！？<br />
+            意味は一緒なので実際のところ、違いは無いそうです。
+          </p>
+        </div>
+      </section>
+      <!---------------------New-products--------------------->
+      <section class="new-products">
+        <div class="wrapper">
+          <h2 class="section-title">NEW<br />PRODUCTS</h2>
+          <div class="marquee-container">
+            <div class="marquee-inner-stop">
+              <img src="img/product1.png" alt="Item1" />
+              <img src="img/product2.png" alt="Item2" />
+              <img src="img/product3.png" alt="Item3" />
+              <img src="img/product4.png" alt="Item4" />
+            </div>
+            <div class="marquee-inner-stop">
+              <img src="img/product5.png" alt="Item5" />
+              <img src="img/product6.png" alt="Item6" />
+              <img src="img/product7.png" alt="Item7" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!---------------------New-type--------------------->
+      <section class="new-type">
+        <div class="text">
+          <div class="text-inner">
+            <h2 class="section-title">しなやかで艶やかな仕上がりへ<br /></h2>
+            <p class="description">
+              濃密なうるおいと美しさで包み込み<br />あなたの髪とお肌をより艶やかに
+            </p>
+          </div>
+        </div>
+        <div class="img">
+          <img src="img/new-type.png" alt="画像更新" />
+        </div>
+      </section>
+    </main>
+    <!---------------------Footer--------------------->
+    <footer id="footer">
+      <div class="inner wrapper">
+        <div class="logo">
+          <img src="img/logo-w.png" alt="logo" />
+        </div>
+        <p class="copyright">
+          <small>©2025 Cosmetic&Beauty Hair.</small>
+        </p>
       </div>
-    </div>
-    <h2>画像をホバーすると動きを止め拡大版</h2>
-    <div class="marquee-container">
-      <div class="marquee-inner-stop">
-        <img src="img/product1.png" alt="Item1" />
-        <img src="img/product2.png" alt="Item2" />
-        <img src="img/product3.png" alt="Item3" />
-        <img src="img/product4.png" alt="Item4" />
-      </div>
-      <div class="marquee-inner-stop">
-        <img src="img/product5.png" alt="Item5" />
-        <img src="img/product6.png" alt="Item6" />
-        <img src="img/product7.png" alt="Item7" />
-      </div>
-    </div>
+    </footer>
   </body>
 </html>
