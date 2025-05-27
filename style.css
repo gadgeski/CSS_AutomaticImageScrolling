@@ -1,26 +1,42 @@
 @charset "UTF-8";
 
+/*-------------------------------------------------
+  Basic Styles
+-------------------------------------------------*/
 html {
   font-size: 100%;
 }
+
 body {
   background-color: #fdf8f8;
   color: #333;
   font-family: "YuGothic", "Yu Gothic", sans-serif;
+  padding: 1rem; /* 競合解消: 後続の`body`スタイルを優先 */
+  overflow-x: hidden;
 }
+
 img {
   max-width: 100%;
-  vertical-align: bottom;
+  display: block; /* 競合解消: `img`の`display`を統一 */
+  /* width: 400px; は一般的な画像に適用されるとレイアウトを崩す可能性があるため削除しました。
+     特定の画像にのみ適用する場合は、クラスを追加して指定することを推奨します。 */
 }
+
 li {
   list-style: none;
 }
+
 a {
   color: #333;
   text-decoration: none;
 }
+
 a:hover {
   opacity: 0.7;
+}
+
+h2 {
+  margin-top: 3rem; /* 新たに追加されたスタイル */
 }
 
 .wrapper {
@@ -28,10 +44,9 @@ a:hover {
   padding: 0 20px;
   margin: 0 auto;
 }
+
 /*-------------------------------------------------
-
-Header
-
+  Header
 -------------------------------------------------*/
 #header .logo {
   width: 100%;
@@ -42,33 +57,34 @@ Header
   left: 30px;
   z-index: 50;
 }
+
 #header .logo a {
   display: block;
 }
-/*------------------------------------------------
 
-MainVisual
-
-------------------------------------------------*/
+/*-------------------------------------------------
+  MainVisual
+-------------------------------------------------*/
 .mainvisual img {
   width: 100%;
   height: 600px;
   object-fit: cover;
   border-radius: 10px;
 }
+
 /*-------------------------------------------------
-
-Concept
-
+  Concept
 -------------------------------------------------*/
 .concept {
   padding-top: 130px;
   padding-bottom: 130px;
   position: relative;
 }
+
 .concept .img {
   max-width: 720px;
 }
+
 .concept .text {
   max-width: 600px;
   background-color: rgba(238, 238, 238, 0.8);
@@ -77,6 +93,7 @@ Concept
   top: 150px;
   right: 0;
 }
+
 .concept .text .section-title {
   font-family: "YuMincho", "Yu Mincho", serif;
   font-size: 30px;
@@ -84,20 +101,21 @@ Concept
   line-height: 1.5;
   margin-bottom: 20px;
 }
+
 .concept .text .description {
   font-size: 15px;
   line-height: 1.8;
   text-align: justify;
 }
-/*------------------------------------------------
 
-NewProducts
-
-------------------------------------------------*/
+/*-------------------------------------------------
+  New Products
+-------------------------------------------------*/
 .new-products {
   background-color: #f4eaea;
   padding: 130px 0;
 }
+
 .new-products .section-title {
   font-family: "YuMincho", "Yu Mincho", serif;
   font-size: 80px;
@@ -106,28 +124,31 @@ NewProducts
   line-height: 1.2;
   margin-bottom: 40px;
 }
+
 .new-products .img-group {
   height: 890px;
   position: relative;
 }
-/*------------------------------------------------
 
-New Type
-
-------------------------------------------------*/
+/*-------------------------------------------------
+  New Type
+-------------------------------------------------*/
 .new-type {
   display: flex;
   align-items: center;
   padding: 130px 0;
 }
+
 .new-type .text {
   width: 50%;
 }
+
 .new-type .text .text-inner {
   max-width: 520px;
   padding: 0 60px 0 20px;
   margin-left: auto;
 }
+
 .new-type .text .section-title {
   font-family: "YuMincho", "Yu Mincho", serif;
   font-size: 30px;
@@ -135,61 +156,49 @@ New Type
   line-height: 1.5;
   margin-bottom: 20px;
 }
+
 .new-type .text .description {
   font-size: 15px;
   line-height: 1.8;
   text-align: justify;
 }
+
 .new-type .img {
   width: 50%;
 }
+
 .new-type .img img {
   height: 480px;
   object-fit: cover;
   object-position: left;
 }
-/*------------------------------------------------
 
-Footer
-
-------------------------------------------------*/
+/*-------------------------------------------------
+  Footer
+-------------------------------------------------*/
 #footer {
   background-color: #666;
   padding: 30px 0;
 }
+
 #footer .inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 #footer .logo {
   max-width: 130px;
 }
+
 #footer .copyright {
   color: #fff;
   font-size: 12px;
 }
 
 /*-------------------------------------------------
-
-BasicStyle
-
+  Marquee Animation
 -------------------------------------------------*/
-body {
-  padding: 1rem;
-  overflow-x: hidden;
-}
-
-img {
-  display: block;
-  width: 400px;
-}
-
-h2 {
-  margin-top: 3rem;
-}
-
-/* 画像が流れ続ける */
 .marquee-container {
   display: flex;
   position: relative;
@@ -202,32 +211,38 @@ h2 {
 
 @keyframes marquee {
   0% {
-    translate: 0;
+    transform: translateX(0); /* translate から transform に変更 */
   }
   100% {
-    translate: -100%;
+    transform: translateX(-100%); /* translate から transform に変更 */
   }
 }
 
 /* 画像にホバーすると動作停止し拡大 */
+/* marquee-inner-stop と marquee-inner は似た機能を持つため、
+   marquee-inner-stop に集約しました。
+   必要に応じて marquee-inner を使用してください。 */
 .marquee-inner-stop {
   display: flex;
   animation: marquee 20s linear infinite;
 }
 
 .marquee-inner-stop img {
-  transition: scale 0.4s;
+  transition: transform 0.4s, scale 0.4s; /* ホバー時のトランジションを追加 */
 }
 
 .marquee-inner-stop:has(img:hover) {
   z-index: 2;
+  animation-play-state: paused; /* ホバー時にアニメーションを停止 */
 }
 
 .marquee-inner-stop img:hover {
-  scale: 1.4;
+  transform: scale(1.4); /* scale から transform に変更 */
 }
 
 /* 停止時クラス */
+/* .marquee-paused は .marquee-inner-stop:has(img:hover) でアニメーション停止処理を統合したため、
+   基本的には不要ですが、JavaScriptなどで明示的に停止させたい場合は使用できます。 */
 .marquee-paused {
   animation-play-state: paused;
 }
