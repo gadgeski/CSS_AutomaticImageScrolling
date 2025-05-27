@@ -4,7 +4,7 @@ const marqueeInners = document.querySelectorAll(".marquee-inner-stop");
 
 // 各画像にホバーイベント追加
 images.forEach((img) => {
-  img.addEventListenner("mouseenter", () => {
+  img.addEventListener("mouseenter", () => {
     // 全ての.marquee-inner-stopのアニメーション停止
     marqueeInners.forEach((marqueeInner) => {
       marqueeInner.classList.add("marquee-paused");
