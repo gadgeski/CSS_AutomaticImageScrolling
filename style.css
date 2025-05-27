@@ -237,7 +237,7 @@ h2 {
 }
 
 .marquee-inner-stop img:hover {
-  transform: scale(1.4); /* scale から transform に変更 */
+  transform: scale(1.2); /* scale から transform に変更 */
 }
 
 /* 停止時クラス */
